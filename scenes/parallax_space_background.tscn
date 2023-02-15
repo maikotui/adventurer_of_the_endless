@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4q2requgttc8"]
+
+[ext_resource type="Texture2D" uid="uid://dnuothqcblnyc" path="res://assets/environment/background/empty_background.png" id="1_58rtj"]
+[ext_resource type="SpriteFrames" uid="uid://d1oj3j77m8j4a" path="res://assets/environment/background/stars_frames.tres" id="2_1vxrj"]
+[ext_resource type="Texture2D" uid="uid://26jn5qs3vejj" path="res://assets/environment/background/nebula.png" id="2_amcjl"]
+[ext_resource type="Script" path="res://scripts/utilities/dumbass_autoplay_fix.gd" id="3_mojhr"]
+
+[node name="Background" type="ParallaxBackground"]
+scroll_base_scale = Vector2(1, 0)
+
+[node name="EmptyBackground" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="EmptyBackground"]
+texture = ExtResource("1_58rtj")
+
+[node name="StarsFar" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(480, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StarsFar"]
+sprite_frames = ExtResource("2_1vxrj")
+animation = &"stars_far"
+frame = 2
+frame_progress = 0.589015
+script = ExtResource("3_mojhr")
+
+[node name="Nebula" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.25, 1)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Nebula"]
+texture = ExtResource("2_amcjl")
+
+[node name="StarsNormal" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(480, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StarsNormal"]
+sprite_frames = ExtResource("2_1vxrj")
+animation = &"stars_normal"
+script = ExtResource("3_mojhr")
+
+[node name="StarsClose" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.75, 1)
+motion_mirroring = Vector2(480, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StarsClose"]
+sprite_frames = ExtResource("2_1vxrj")
+animation = &"stars_close"
+script = ExtResource("3_mojhr")

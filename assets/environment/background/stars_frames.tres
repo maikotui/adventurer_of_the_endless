@@ -1,0 +1,86 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://d1oj3j77m8j4a"]
+
+[ext_resource type="Texture2D" uid="uid://c3lkhoifhn6do" path="res://assets/environment/background/stars_close_3.png" id="1_7b601"]
+[ext_resource type="Texture2D" uid="uid://ti81l5tli4tl" path="res://assets/environment/background/stars_far_3.png" id="2_pp1my"]
+[ext_resource type="Texture2D" uid="uid://jhtd8je0cvrh" path="res://assets/environment/background/stars_normal_3.png" id="3_fhk5c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7in4"]
+atlas = ExtResource("1_7b601")
+region = Rect2(0, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaqu0"]
+atlas = ExtResource("1_7b601")
+region = Rect2(480, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_070or"]
+atlas = ExtResource("1_7b601")
+region = Rect2(960, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcpvr"]
+atlas = ExtResource("2_pp1my")
+region = Rect2(0, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li6fc"]
+atlas = ExtResource("2_pp1my")
+region = Rect2(480, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8utv1"]
+atlas = ExtResource("2_pp1my")
+region = Rect2(960, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg58d"]
+atlas = ExtResource("3_fhk5c")
+region = Rect2(0, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqi17"]
+atlas = ExtResource("3_fhk5c")
+region = Rect2(480, 0, 480, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl0yj"]
+atlas = ExtResource("3_fhk5c")
+region = Rect2(960, 0, 480, 240)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7in4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaqu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_070or")
+}],
+"loop": true,
+"name": &"stars_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcpvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li6fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8utv1")
+}],
+"loop": true,
+"name": &"stars_far",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg58d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqi17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl0yj")
+}],
+"loop": true,
+"name": &"stars_normal",
+"speed": 5.0
+}]

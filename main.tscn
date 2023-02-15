@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhxth7hml3thh"]
+
+[ext_resource type="PackedScene" uid="uid://b4q2requgttc8" path="res://scenes/parallax_space_background.tscn" id="1_b182o"]
+[ext_resource type="PackedScene" uid="uid://bparossoykxqx" path="res://scenes/player.tscn" id="2_oqexe"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_b182o")]
+scroll_base_offset = Vector2(0, 120)
+
+[node name="Player" parent="." instance=ExtResource("2_oqexe")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
