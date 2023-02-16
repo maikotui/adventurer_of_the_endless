@@ -1,13 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhxth7hml3thh"]
+[gd_scene load_steps=7 format=3 uid="uid://bhxth7hml3thh"]
 
 [ext_resource type="PackedScene" uid="uid://b4q2requgttc8" path="res://scenes/parallax_space_background.tscn" id="1_b182o"]
+[ext_resource type="Texture2D" uid="uid://c6yqpnca0m8k8" path="res://assets/lights/light_256x256.png" id="2_hde7p"]
+[ext_resource type="Texture2D" uid="uid://bp371k0kchfdk" path="res://assets/environment/explorer_bedroom.png" id="2_lsrjr"]
 [ext_resource type="PackedScene" uid="uid://bparossoykxqx" path="res://scenes/player.tscn" id="2_oqexe"]
+[ext_resource type="Texture2D" uid="uid://cu5opr46e5yii" path="res://assets/lights/light_32x32.png" id="3_blh4a"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r8c5b"]
+polygon = PackedVector2Array(-8, -22, 9, -22, 9, 19, 7, 21, -8, 21, -10, 19, -10, -20)
 
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_b182o")]
 scroll_base_offset = Vector2(0, 120)
 
-[node name="Player" parent="." instance=ExtResource("2_oqexe")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="SkyLight" type="PointLight2D" parent="CanvasLayer"]
+position = Vector2(2, 20)
+color = Color(1, 0.760784, 0.823529, 1)
+energy = 0.75
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("2_hde7p")
+
+[node name="BedLight" type="PointLight2D" parent="CanvasLayer"]
+position = Vector2(49, 15)
+color = Color(0.203922, 0.619608, 0.545098, 1)
+energy = 1.14
+shadow_enabled = true
+texture = ExtResource("3_blh4a")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+color = Color(0.486275, 0.486275, 0.486275, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("2_lsrjr")
+
+[node name="Player" parent="CanvasLayer" instance=ExtResource("2_oqexe")]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Player"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CanvasLayer"]
+light_mask = 2
+visibility_layer = 0
+position = Vector2(48, 18)
+occluder = SubResource("OccluderPolygon2D_r8c5b")
+occluder_light_mask = 2
